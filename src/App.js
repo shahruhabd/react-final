@@ -9,7 +9,6 @@ function App() {
       <Main />
       <About />
       <Catalog />
-      <AddItem />
     </div>
   );
 }

@@ -1,38 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react';
+import AddItem from './AddItem';
 import '../css/main.css'
 
 const Catalog = () => {
+  const initialProducts = [
+    { id: 1, name: 'Ноутбук', price: 1000 },
+    { id: 2, name: 'Смартфон', price: 500 },
+    { id: 3, name: 'Планшет', price: 300 },
+  ];
+
+  const [products, setProducts] = useState(initialProducts);
+  const addProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+  };
   return (
-    <div className='wrapper'>
-        <header>
-            <h1>Catalog</h1>
-        </header>
-        <div className='content'>
-            <table style={{'width': '500px'}}>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Watermelon</td>
-                        <td>50tg</td>
-                    </tr>
-                    <tr>
-                        <td>Banana</td>
-                        <td>100tg</td>
-                    </tr>
-                    <tr>
-                        <td>Apple</td>
-                        <td>75tg</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div>
+      <h2>Список товаров</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - {product.price} руб.
+          </li>
+        ))}
+      </ul>
+
+      <AddItem onAddProduct={addProduct} />
     </div>
-  )
-}
+  );
+};
 
 export default Catalog

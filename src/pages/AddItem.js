@@ -1,27 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react';
+
 import '../css/main.css'
 
-const AddItem = () => {
-  return (
-    <div className='wrapper wrapper_add_item'>
-        <header>
-            <h1>Add item</h1>
-        </header>
-        <div className='content'>
-            <form action="">
-                <input type="text" name="" id="" placeholder='Name' className='add-item_input'/><br />
-                <input type="text" name="" id="" placeholder='Cost' className='add-item_input'/><br />
-                <label>
-                    Click me <input type="radio" name="" id="" /><br />
-                </label>
-                <label>
-                    Click me <input type="checkbox" name="" id="" /><br />
-                </label>
-                <button>Create</button>
-            </form>
-        </div>
-    </div>
-  )
-}
+
+const AddItem = ({ onAddProduct }) => {
+    const [productName, setProductName] = useState('');
+    const [productPrice, setProductPrice] = useState('');
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      const newProduct = {
+        id: Date.now(), 
+        name: productName,
+        price: parseFloat(productPrice),
+      };
+  
+      onAddProduct(newProduct);
+  
+      setProductName('');
+      setProductPrice('');
+    };
+  
+    return (
+      <form onSubmit={handleSubmit}>
+        <h3>Добавить новый товар</h3>
+        <label>
+          Название товара:
+          <input
+            type="text"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+          />
+        </label>
+        <label>
+          Цена товара:
+          <input
+            type="number"
+            value={productPrice}
+            onChange={(e) => setProductPrice(e.target.value)}
+          />
+        </label>
+        <button type="submit">Добавить товар</button>
+      </form>
+    );
+  };
 
 export default AddItem
