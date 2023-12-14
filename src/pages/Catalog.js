@@ -1,13 +1,14 @@
 import React from 'react'
+import '../css/main.css'
 
 const Catalog = () => {
   return (
-    <div>
+    <div className='wrapper'>
         <header>
             <h1>Catalog</h1>
         </header>
-        <div>
-            <table>
+        <div className='content'>
+            <table style={{'width': '500px'}}>
                 <thead>
                     <tr>
                         <th>Name</th>
