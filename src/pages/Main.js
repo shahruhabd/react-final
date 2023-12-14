@@ -8,6 +8,7 @@ import UncontrolledForm from '../components/UncontrolledForm';
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import '../css/main.css'
+import MyComponent from '../components/MyComponent';
 
 const initialProductsData = [
   { id: 1, name: 'Product A', price: 20 },
@@ -65,6 +66,7 @@ const Main = () => {
       </div>
       <Search onSearch={handleSearch} />
       <Filters onFilter={handleFilter} />
+      <MyComponent someProp="value" />
     </div>
   )
 }
