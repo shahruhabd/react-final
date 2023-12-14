@@ -1,34 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import ApiService from '../services/api';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await ApiService.getProducts();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
+class Products extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
     };
+  }
 
-    fetchProducts();
-  }, []);
+  componentDidMount() {
+    this.fetchProducts();
+  }
 
-  return (
-    <div>
-      <h2>Product List</h2>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.title} - {product.formattedPrice}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+  fetchProducts = async () => {
+    try {
+      const response = await axios.get('https://fakestoreapi.com/products');
+      this.setState({ products: response.data });
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <h2>Product List (Class Component)</h2>
+        <ul>
+          {this.state.products.map((product) => (
+            <li key={product.id}>
+              {product.title} - ${product.price.toFixed(2)}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
 
 export default Products;
