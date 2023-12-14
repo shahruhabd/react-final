@@ -6,8 +6,12 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await ApiService.getProducts();
-      setProducts(data);
+      try {
+        const data = await ApiService.getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchProducts();
@@ -18,7 +22,9 @@ const Products = () => {
       <h2>Product List</h2>
       <ul>
         {products.map((product) => (
-          <li key={product.id}>{product.title}</li>
+          <li key={product.id}>
+            {product.title} - {product.formattedPrice}
+          </li>
         ))}
       </ul>
     </div>
