@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ControlledForm = () => {
+const ControlledForm = ({ onAddItem }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e) => {
@@ -9,18 +9,21 @@ const ControlledForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Controlled Form Submitted: ${inputValue}`);
+    onAddItem({ id: Date.now(), text: inputValue });
+    setInputValue('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <h3>Controlled Form</h3>
-      <label>
-        Enter text:
-        <input type="text" value={inputValue} onChange={handleChange} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter text:
+          <input type="text" value={inputValue} onChange={handleChange} />
+        </label>
+        <button type="submit">Add Item</button>
+      </form>
+    </>
   );
 };
 

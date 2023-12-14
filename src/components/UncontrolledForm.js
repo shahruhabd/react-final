@@ -1,22 +1,25 @@
 import React, { useRef } from 'react';
 
-const UncontrolledForm = () => {
+const UncontrolledForm = ({ onAddItem }) => {
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Uncontrolled Form Submitted: ${inputRef.current.value}`);
+    onAddItem({ id: Date.now(), text: inputRef.current.value });
+    inputRef.current.value = '';
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <h3>Uncontrolled Form</h3>
-      <label>
-        Enter text:
-        <input type="text" ref={inputRef} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter text:
+          <input type="text" ref={inputRef} />
+        </label>
+        <button type="submit">Add Item</button>
+      </form>
+    </>
   );
 };
 

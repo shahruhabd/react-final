@@ -12,7 +12,7 @@ const About = () => {
         </h2>
         <AboutBlock
             title="Our World of Products:"
-            content='"Max Shop" offers a diverse range of products, from stylish clothing and accessories to the latest technological innovations. We constantly update our catalog to meet the needs of even the most discerning shoppers.'
+            content='"Shah Shop" offers a diverse range of products, from stylish clothing and accessories to the latest technological innovations. We constantly update our catalog to meet the needs of even the most discerning shoppers.'
         />
 
         <AboutBlock

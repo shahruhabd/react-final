@@ -10,6 +10,7 @@ function App() {
       <About />
       <Catalog />
       <Footer />
+
     </div>
   );
 }
