@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
 import "../css/main.css";
+import InputField from "../components/InputField";
+import SubmitButton from "../components/SubmitButton";
 
 const AddItem = ({ onAddProduct }) => {
   const [productName, setProductName] = useState("");
@@ -20,7 +21,7 @@ const AddItem = ({ onAddProduct }) => {
     setProductName("");
     setProductPrice("");
   };
-  
+
   const handleButtonClick = () => {
     console.log('Кнопка "Добавить товар" была нажата!');
   };
@@ -32,27 +33,21 @@ const AddItem = ({ onAddProduct }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Добавить новый товар</h3>
-      <label>
-        Название товара:
-        <input
-          type="text"
-          value={productName}
-          onChange={(e) => setProductName(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-      </label>
-      <label>
-        Цена товара:
-        <input
-          type="number"
-          value={productPrice}
-          onChange={(e) => setProductPrice(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-      </label>
-      <button type="submit" onClick={handleButtonClick}>
-        Добавить товар
-      </button>
+      <InputField
+        label="Название товара:"
+        type="text"
+        value={productName}
+        onChange={(e) => setProductName(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      <InputField
+        label="Цена товара:"
+        type="number"
+        value={productPrice}
+        onChange={(e) => setProductPrice(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      <SubmitButton onClick={handleButtonClick} />
     </form>
   );
 };
