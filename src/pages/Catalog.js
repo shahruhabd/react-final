@@ -13,7 +13,18 @@ const Catalog = () => {
   const addProduct = (newProduct) => {
     setProducts([...products, newProduct]);
   };
-  return (
+
+  products.forEach((product) => {
+    console.log(`Товар: ${product.name}, Цена: ${product.price} руб.`);
+  });
+
+  const productNames = products.map((product) => product.name);
+
+  const expensiveProducts = products.filter((product) => product.price > 500);
+
+  const totalCost = products.reduce((acc, product) => acc + product.price, 0);
+
+return (
     <div>
       <h2>Список товаров</h2>
       <ul>
@@ -25,6 +36,13 @@ const Catalog = () => {
       </ul>
 
       <AddItem onAddProduct={addProduct} />
+
+      <div>
+        <h3>Дополнительная информация:</h3>
+        <p>Названия товаров: {productNames.join(', ')}</p>
+        <p>Дорогие товары: {expensiveProducts.map((product) => product.name).join(', ')}</p>
+        <p>Общая стоимость товаров: {totalCost} руб.</p>
+      </div>
     </div>
   );
 };
