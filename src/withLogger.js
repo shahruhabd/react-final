@@ -2,7 +2,7 @@ import React from 'react';
 
 const withLogger = (WrappedComponent) => {
   return (props) => {
-    console.log('Component props:', props);
+    console.log('Logger - Component props:', props);
     return <WrappedComponent {...props} />;
   };
 };

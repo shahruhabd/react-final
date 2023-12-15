@@ -9,13 +9,15 @@ import Search from "../components/Search";
 import Filters from "../components/Filters";
 import '../css/main.css'
 import MyComponent from '../components/MyComponent';
+import withLogger from '../withLogger';
+import withUpperCase from '../withUpperCase';
 
 const initialProductsData = [
   { id: 1, name: 'Product A', price: 20 },
   { id: 2, name: 'Product B', price: 30 },
   { id: 3, name: 'Product C', price: 40 },
 ];
-
+const EnhancedComponent = withLogger(withUpperCase(MyComponent));
 const Main = () => {
   const [items, setItems] = useState([]);
 
@@ -49,24 +51,27 @@ const Main = () => {
     <div className='wrapper'>
       <Header />
       <ContentBlock />
-      <FunctionalComponent message="Hello from props!" />
-      <ClassComponent />
-      <ControlledForm onAddItem={handleAddItem} />
-      <UncontrolledForm onAddItem={handleAddItem} />
-      <div>
-        <h3>Added Items</h3>
-        <ul>
-          {items.map((item) => (
-            <li key={item.id}>
-              {item.text}{' '}
-              <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
+      <div className='row align-items-center container justify-content-between gap-3' style={{'maxWidth':'70%', 'margin':'0 auto'}}>
+        <Search onSearch={handleSearch} />
+        <Filters onFilter={handleFilter} />
+        <FunctionalComponent message="Hello from props!" />
+        <ClassComponent />
+        <ControlledForm onAddItem={handleAddItem} />
+        <UncontrolledForm onAddItem={handleAddItem} />
+        <div className='container'>
+          <h3>Added Items</h3>
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                {item.text}{' '}
+                <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* <MyComponent someProp="value" /> */}
+        {/* <EnhancedComponent someProp="value" /> */}
       </div>
-      <Search onSearch={handleSearch} />
-      <Filters onFilter={handleFilter} />
-      <MyComponent someProp="value" />
     </div>
   )
 }

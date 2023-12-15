@@ -1,28 +1,37 @@
 import React from 'react';
-import '../css/main.css';
-import AboutBlock from '../components/AboutBlock';
 
 const About = () => {
   return (
-    <div className='wrapper'>
-      <h1>About</h1>
-      <div className='content'>
-        <h2 className='content_subtitle'>
-          Welcome to <span style={{ 'color': 'red' }}>"Shah Shop"</span> — your go-to online store for unique finds! We are a team of enthusiasts united by a shared passion for quality goods and outstanding service.
+    <div className="wrapper">
+      <h1>About Us</h1>
+      <div className="content">
+        <h2 className="content_subtitle">
+          Welcome to "Shah Shop" - Your Ultimate Destination for Quality Products!
         </h2>
-        <AboutBlock
-            title="Our World of Products:"
-            content='"Shah Shop" offers a diverse range of products, from stylish clothing and accessories to the latest technological innovations. We constantly update our catalog to meet the needs of even the most discerning shoppers.'
-        />
-
-        <AboutBlock
-            title="Our Advantages:"
-            content={[
-                'Quality: We take pride in providing only high-quality products from trusted manufacturers.',
-                'Convenience: Our customers matter to us, and we strive to create a user-friendly interface for a seamless online shopping experience.',
-                'Fast Delivery: We value your time and offer prompt delivery, so you can enjoy your purchases as soon as possible.'
-          ]}
-        />
+        <div className="about_block">
+          <h3 className="about_title">Our Commitment:</h3>
+          <p className="about_p">
+            At "Shah Shop," we are dedicated to providing our customers with an exceptional online shopping experience. Our mission is to offer a curated selection of high-quality products that cater to diverse interests and preferences.
+          </p>
+        </div>
+        <div className="about_block">
+          <h3 className="about_title">What Sets Us Apart:</h3>
+          <p className="about_p">
+            Quality is at the forefront of everything we do. We take pride in sourcing products from reputable manufacturers to ensure durability and customer satisfaction. Our user-friendly interface makes navigation a breeze, and our responsive customer support is always ready to assist you.
+          </p>
+        </div>
+        <div className="about_block">
+          <h3 className="about_title">Our Product Range:</h3>
+          <p className="about_p">
+            "Shah Shop" offers a diverse range of products, from trendy fashion and accessories to cutting-edge tech gadgets. Our catalog is regularly updated to stay ahead of the latest trends and meet the needs of our discerning customers.
+          </p>
+        </div>
+        <div className="about_block">
+          <h3 className="about_title">Shop with Confidence:</h3>
+          <p className="about_p">
+            We understand the value of your time, and that's why we prioritize fast and reliable delivery. Your satisfaction is our top priority, and we strive to make every interaction with "Shah Shop" enjoyable and hassle-free. Thank you for choosing us as your preferred online shopping destination.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const Filters = ({ onFilter }) => {
   };
 
   return (
-    <>
+    <div className='container'>
       <h3>Filters</h3>
       <select onChange={handleFilter}>
         <option value="">All</option>
@@ -14,7 +14,7 @@ const Filters = ({ onFilter }) => {
         <option value="moderate">Moderate</option>
         <option value="expensive">Expensive</option>
       </select>
-    </>
+    </div>
   );
 };
 

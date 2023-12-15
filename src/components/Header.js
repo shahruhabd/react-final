@@ -5,8 +5,8 @@ import Navigation from "./Navigation";
 const Header = () => {
   return (
     <header>
-      <Logo />
-      <Navigation />
+      {/* <Logo /> */}
+      {/* <Navigation /> */}
     </header>
   );
 };

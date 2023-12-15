@@ -10,16 +10,16 @@ const UncontrolledForm = ({ onAddItem }) => {
   };
 
   return (
-    <>
+    <div className='container'>
       <h3>Uncontrolled Form</h3>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} class="form-control">
+        <label class="form-control">
           Enter text:
-          <input type="text" ref={inputRef} />
+          <input type="text" ref={inputRef} class="form-control"/>
         </label>
-        <button type="submit">Add Item</button>
+        <button type="submit" class="form-control">Add Item</button>
       </form>
-    </>
+    </div>
   );
 };
 

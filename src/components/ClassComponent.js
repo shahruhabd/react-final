@@ -14,10 +14,10 @@ class ClassComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3>Class-Based Component</h3>
         <p>Count: {this.state.count}</p>
-        <button onClick={this.handleIncrement}>Increment</button>
+        <button onClick={this.handleIncrement} class="form-control">Increment</button>
       </div>
     );
   }

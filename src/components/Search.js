@@ -6,10 +6,10 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <>
+    <div className='container'>
       <h3>Search</h3>
-      <input type="text" placeholder="Search..." onChange={handleSearch} />
-    </>
+      <input type="text" placeholder="Search..." onChange={handleSearch} class="form-control"/>
+    </div>
   );
 };
 
